@@ -8,27 +8,33 @@
             </div>
         </div>
         <div class="row m-3">
-            {% for post in posts %}
-            <div class="col-4 mb-4">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <img src="https://placehold.co/400" class="img-fluid" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <h5 class="card-title">{{post.title}}</h5>
-                                <p class="card-text">{{post.content}}</p>
-                                <div class="d-flex justify-content-between">
-                                     <a href="./detail.html">Read More</a>
-                                    <a class="text-decoration-none text-dark fw-bold" href="#">Sports</a>
+            {% if posts %}
+                {% for post in posts %}
+                    <div class="col-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <img src="https://placehold.co/400" class="img-fluid" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h5 class="card-title">{{post.title}}</h5>
+                                        <p class="card-text">{{post.content}}</p>
+                                        <div class="d-flex justify-content-between">
+                                            <a href="./detail.html">Read More</a>
+                                            <a class="text-decoration-none text-dark fw-bold" href="#">Sports</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                {% endfor %}
+            {% else %}
+                <div class="col">
+                    <h3>No posts Available</h3>
                 </div>
-            </div>
-            {% endfor %}
+            {% endif %}
         </div>   
     </div>
 {% endblock %}
