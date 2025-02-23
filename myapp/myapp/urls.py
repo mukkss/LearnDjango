@@ -19,6 +19,9 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import include
 
+
+handler404 = 'myapp.views.custom_page_not_found'
+
 urlpatterns = [
     path("blog/", include("blog.urls")),
 ]
