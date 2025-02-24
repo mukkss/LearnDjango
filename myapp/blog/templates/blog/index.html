@@ -18,8 +18,8 @@
                                         <img style = "height:300, width:300"src="{{post.img_url}}" class="img-fluid" alt="...">
                                     </div>
                                     <div class="col-md-8">
-                                        <h5 class="card-title">{{post.title}}</h5>
-                                        <p class="card-text">{{post.content}}</p>
+                                        <h5 class="card-title">{{post.title | truncatechars:19}}</h5>
+                                        <p class="card-text">{{post.content | truncatechars:50}}</p>
                                         <div class="d-flex justify-content-between">
                                             <a href="{% url 'blog:detail' post_id=post.id %}">Read More</a>
                                             <a class="text-decoration-none text-dark fw-bold" href="#">Sports</a>
