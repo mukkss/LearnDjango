@@ -2,33 +2,37 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.urls import reverse
 import  logging
+from .models import Post
 
-# Create your views here.
-posts = [
-    {
-        'id': 1,
-        'title': 'Post 1',
-        'content': 'This is the first post'
-    },
-    {
-        'id': 2,
-        'title': 'Post 2',
-        'content': 'This is the second post'
-    },
-    {
-        'id': 3,
-        'title': 'Post 3',
-        'content': 'This is the third post'
-    },
-    {  
-        'id': 4,
-        'title': 'Post 4',
-        'content': 'This is the fourth post'
-    },
-]
+# # Create your views here.
+#Static demo data 
+# posts = [
+#     {
+#         'id': 1,
+#         'title': 'Post 1',
+#         'content': 'This is the first post'
+#     },
+#     {
+#         'id': 2,
+#         'title': 'Post 2',
+#         'content': 'This is the second post'
+#     },
+#     {
+#         'id': 3,
+#         'title': 'Post 3',
+#         'content': 'This is the third post'
+#     },
+#     {  
+#         'id': 4,
+#         'title': 'Post 4',
+#         'content': 'This is the fourth post'
+#     },
+# ]
 
 def index(request):
     blog_title = 'Latest Posts'
+    # getting data from post model
+    posts = Post.objects.all()
     return render(request, 'blog/index.html', {'blog_title': blog_title, 'posts': posts})
 
 def detail(request, post_id):
