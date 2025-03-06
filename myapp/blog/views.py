@@ -39,12 +39,12 @@ def index(request):
 def detail(request, post_id):
     # getting Static Data
     # post = next((item for item in posts if item['id'] == int(post_id)), None)
-    #   Getting data from model using ID
     try:
         post = Post.objects.get(pk=post_id)
     except Post.DoesNotExist:
         raise Http404("Post does not exist!")
 
+    #   Getting data from model using ID
     # logger = logging.getLogger("TESTING")
     # logger.debug(f'Post variable is {post}')
     return render(request, 'blog/details.html', {'post' : post})
