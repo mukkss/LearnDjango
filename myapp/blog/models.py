@@ -18,7 +18,7 @@ class Post(models.Model):
     img_url = models.URLField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     slugs = models.SlugField(blank=True, null=True)  # Remove unique=True for now
-
+    category = models.ForeignKey(Category,on_delete=models.CASCADE)
 
     def save(self, *args, **kwargs):
         self.slugs = slugify(self.title)
