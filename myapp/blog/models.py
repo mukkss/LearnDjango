@@ -1,6 +1,16 @@
 from django.db import models
 from django.utils.text import slugify
 
+#Cartegory model
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+    
+
+    def __str__(self):
+        return self.name
+    
+
+
 # Create your models here.
 class Post(models.Model):
     title = models.CharField(max_length=100)
@@ -17,10 +27,3 @@ class Post(models.Model):
     def __str__(self):
         return self.title
     
-#Cartegory model
-class Category(models.Model):
-    name = models.CharField(max_length=100)
-    
-
-    def __str__(self):
-        return self.name
